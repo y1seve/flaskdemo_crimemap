@@ -1,2 +1,2 @@
 db_user = 'root'
-db_password = '123'
+db_password = '123456'

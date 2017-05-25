@@ -10,7 +10,7 @@ try:
         sql = 'CREATE DATABASE IF NOT EXISTS crimemap'
         cursor.execute(sql)
         sql = '''CREATE TABLE IF NOT EXISTS crimemap.crimes (
-            id int NOT NULLL AUTO_INCREMENT,
+            id int NOT NULL AUTO_INCREMENT,
             latitude FLOAT(10, 6),
             longitude FLOAT(10, 6),
             date DATETIME,
