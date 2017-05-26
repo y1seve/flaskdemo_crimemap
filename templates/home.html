@@ -1,4 +1,4 @@
-<html>
+<!--<html>
     <head>
         <title>Crime Map</title>
     </head>
@@ -13,4 +13,25 @@
             <p>{{userinput}}</p>
         {% endfor %}
     </body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
+        </script>
+
+        <script type="text/javascript">
+            function initialize() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(22.54851500000000,114.06611200000000),
+                    zoom: 15
+                };
+                var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            }
+        </script>
+    </head>
+    <body onload="initialize()">
+        <div id="map-canvas" style="width:80%; height:500px;"></div>
+    </body>
 </html>
+
