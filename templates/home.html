@@ -17,6 +17,7 @@
                 google.maps.event.addListener(map, 'click', function(event) {
                     placeMarker(event.latLng);
                 });
+                placeCrimes('{{crimes | safe}}');
             }
 
             function placeMarker(location) {
@@ -30,6 +31,20 @@
                 }
                 document.getElementById('latitude').value = location.lat();
                 document.getElementById('longitude').value = location.lng();
+            }
+
+            function placeCrimes(crimes) {
+                crimes = JSON.parse(crimes);
+                for (i = 0; i < crimes.length; i++) {
+                    console.log('hello')
+                    console.log(crimes[i].latitude)
+                    console.log(crimes[i].longitude)
+                    crime = new google.maps.Marker({
+                        position: new google.maps.LatLng(crimes[i].latitude, crimes[i].longitude),
+                        map: map,
+                        title: crimes[i].date + '\n' + crimes[i].category + '\n' + crimes[i].description
+                    });
+                }
             }
         </script>
     </head>
