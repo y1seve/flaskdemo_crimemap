@@ -36,9 +36,6 @@
             function placeCrimes(crimes) {
                 crimes = JSON.parse(crimes);
                 for (i = 0; i < crimes.length; i++) {
-                    console.log('hello')
-                    console.log(crimes[i].latitude)
-                    console.log(crimes[i].longitude)
                     crime = new google.maps.Marker({
                         position: new google.maps.LatLng(crimes[i].latitude, crimes[i].longitude),
                         map: map,
@@ -58,8 +55,9 @@
             <form action="/submitcrime" method="POST">
                 <label for="category">Category</label>
                 <select name="category" id="category">
-                    <option value="mugging">Mugging</option>
-                    <option value="breakin">Break-in</option>
+                    {% for category in categories %}
+                        <option value="{{category}}">{{category}}</option>
+                    {% endfor %}
                 </select>
                 <label for="date">Date</label>
                 <input type="date" name="date" id="date">
